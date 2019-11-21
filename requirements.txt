@@ -72,7 +72,6 @@ s3transfer==0.1.13
 safeeyes==2.0.9
 SecretStorage==2.3.1
 selenium==3.141.0
-sessioninstaller==0.0.0
 setproctitle==1.1.10
 sgt-launcher==0.2.4
 simplejson==3.13.2
