@@ -70,7 +70,6 @@ roman==2.0.0
 rsa==3.4.2
 s3transfer==0.1.13
 safeeyes==2.0.9
-screen-resolution-extra==0.0.0
 SecretStorage==2.3.1
 selenium==3.141.0
 sessioninstaller==0.0.0
