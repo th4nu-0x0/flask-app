@@ -37,6 +37,11 @@ def register():
     if request.method == "GET": 
         return render_template("/register.html")
     if request.method == "POST":
+
+        userCheck = db.execute("SELECT * FROM users WHERE username = :username",
+                      {"username":request.form.get("username")}).fetchone()
+        if userCheck:
+            return render_template("/error.html", message="user already exsist")
         user = request.form.get("username")
         pass1 = request.form.get("password")
         pass2 = request.form.get("cpassword")
@@ -49,12 +54,6 @@ def register():
                 {"name": user, "pass": hashpass})
     db.commit()
     return redirect('/login')
-        
-        #check wheather username alredy exsists
-        #usercheck = db.execute("SELECT * FROM users WHERE username = :username", {"username":user})
-        #user_exsist = usercheck.first()
-        #if not user_exsist:
-        
 
 
 @app.route("/login", methods=['GET', 'POST'])
@@ -86,6 +85,30 @@ def login():
 @app.route("/home", methods=['GET', 'POST'])
 def home():
     return render_template("/home.html")
+
+@app.route("/search", methods=['GET'])
+def search():
+    if not request.args.get("book"):
+        return render_template("error.html", message="Enter the correct isbn, title or aurthor name, No records found")
+
+    query = "%" + request.args.get("book") + "%"
+
+    rows = db.execute("SELECT isbn, title, author, year FROM books WHERE \
+                          isbn LIKE :query OR \
+                          title LIKE :query OR \
+                          author LIKE :query ",
+                          {"query":query})
+    
+    if rows.rowcount == 0:
+        return render_template("error.html", message="No Books Found")
+
+    book = rows.fetchall()
+
+    return render_template("search_result.html", message=book)
+    
+
+
+
 
 @app.route("/logout")
 def logout():

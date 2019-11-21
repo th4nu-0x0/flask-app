@@ -2,6 +2,7 @@
 
 <html lang="en">
     <head>
+     
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title>Bookspot</title>
@@ -26,14 +27,23 @@
             text-align: center;
             font-style: italic;
           }
+          h2 {
+            text-align: center;
+            font-style: italic;
+          }
+          h3 {
+            text-align: center;
+            font-style: italic;
+          }
     </style>
-    {% block head %} {% endblock %}
+    {% block head %}
+    {% endblock %}
     </head>
     <body>
             <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
             <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
             <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
-                    <a class="navbar-brand" href="#">{% block uname %} Bookspot {% endblock %}</a>
+                    <a class="navbar-brand" href="home">{% block uname %} Bookspot {% endblock %}</a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                       <span class="navbar-toggler-icon"></span>
                     </button>
