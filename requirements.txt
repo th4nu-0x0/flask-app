@@ -58,7 +58,6 @@ python-dateutil==2.6.1
 python-debian==0.1.32
 python-debianbts==2.7.2
 python-Levenshtein==0.12.0
-python-magic==0.4.16
 python-xapp==1.0.0
 python-xlib==0.20
 pytz==2018.3
