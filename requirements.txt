@@ -34,7 +34,6 @@ netifaces==0.10.4
 numpy==1.17.4
 oauth==1.0.1
 olefile==0.45.1
-onboard==1.4.1
 paramiko==2.6.0
 passlib==1.7.1
 pexpect==4.2.1
